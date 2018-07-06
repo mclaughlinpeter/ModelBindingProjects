@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MvcModels.Models;
+using System.Linq;
 
 namespace MvcModels.Controllers
 {
@@ -12,6 +13,6 @@ namespace MvcModels.Controllers
             repository = repo;
         }
 
-        public ViewResult Index(int id) => View(repository[id]);
+        public ViewResult Index(int id) => View(repository[id] ?? repository.People.First());
     }
 }
