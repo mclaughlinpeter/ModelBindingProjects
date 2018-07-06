@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MvcModels.Models;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace MvcModels.Controllers
 {
@@ -33,6 +34,6 @@ namespace MvcModels.Controllers
 
         public ViewResult DisplaySummary([Bind(nameof(AddressSummary.City), Prefix = nameof(Person.HomeAddress))] AddressSummary summary) => View(summary);
 
-        public ViewResult Names(string[] names) => View(names ?? new string[0]);
+        public ViewResult Names(IList<string> names) => View(names ?? new List<string>());
     }
 }
